@@ -1,0 +1,29 @@
+h1{
+    text-shadow: 0 0 10px red;
+    color:white;
+    text-align: center;
+}
+
+p{
+    color:white;
+    text-align: center;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a{
+    font-size: 110%;
+    text-shadow: 5px 5px 5px blue;
+    color:white;
+}
+
+/* body */
+body {
+    background-image: url("../images/background.png");
+    color:white;
+    text-align: center;
+}

@@ -1,10 +1,5 @@
-h1{
-    text-shadow: 0 0 10px red;
-    color:white;
-    text-align: center;
-}
-
-p{
+h1 {
+    text-shadow: 5px 5px 5px red;
     color:white;
     text-align: center;
 }
@@ -21,9 +16,23 @@ a{
     color:white;
 }
 
-/* body */
+
 body {
     background-image: url("../images/background.png");
     color:white;
     text-align: center;
 }
+
+.wrapper {
+    margin: 100px auto 0 auto;
+    max-width: 700px;
+}
+  
+.hide {
+    display: none;
+}
+  
+.start {
+    text-align: center;
+}
+

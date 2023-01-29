@@ -36,3 +36,22 @@ body {
     text-align: center;
 }
 
+.answer {
+    font-size: 150%;
+}
+
+  button {
+    display: inline-block;
+    margin: 15px;
+    font-size: 120%;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+ 
+button:hover {
+    background-color: red;
+  }
+  
+.choice button {
+    display: block;
+}

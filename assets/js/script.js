@@ -3,6 +3,8 @@ var timerEl = document.querySelector("#time");
 var choicesEl = document.querySelector("#choices");
 var startBtn = document.querySelector("#start");
 var answerEl = document.querySelector("#answer");
+var submitBtn = document.querySelector("#submit");
+var initialsEl = document.querySelector("#initials");
 
 // quiz variables
 var currentQuestionIndex = 0;
@@ -55,7 +57,7 @@ function getQuestion() {
 }
 
 function questionClick() {
-  // if user guessed wrong received time penalty
+  // if user guessed incorrectly received time penalty
   if (this.value !== questions[currentQuestionIndex].answer) {
     
     time -= 10;
@@ -66,7 +68,7 @@ function questionClick() {
 
     // display if answer was correct or wrong
     timerEl.textContent = time;
-    answerEl.textContent = "Wrong!";
+    answerEl.textContent = "Incorrect!";
     answerEl.style.color = "red";
     answerEl.style.fontSize = "400%";
   } else {
@@ -103,5 +105,56 @@ function clockTick() {
   }
 }
 
+// stop timer
+function quizEnd() {
+  clearInterval(timerId);
+
+  // show end screen
+  var finishScreenEl = document.getElementById("finish");
+  finishScreenEl.removeAttribute("class");
+
+  // show final score
+  var finalScoreEl = document.getElementById("final-score");
+  finalScoreEl.textContent = time;
+
+  // hide questions section
+  questionsEl.setAttribute("class", "hide");
+}
+
+function saveHighscore() {
+  // get value of input box
+  var initials = initialsEl.value.trim();
+
+  // get saved scores
+  if (initials !== "") {
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: time,
+      initials: initials
+    };
+
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // redirect to next page
+    window.location.href = "score.html";
+  }
+}
+// save score
+function checkForEnter(event) {
+  if (event.key === "Enter") {
+    saveHighscore();
+  }
+}
+
+// submit initials
+submitBtn.onclick = saveHighscore;
+
 // start quiz
 startBtn.onclick = startQuiz;
+
+initialsEl.onkeyup = checkForEnter;

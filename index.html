@@ -8,12 +8,13 @@
     <title>Coding Quiz Challenge</title>
 </head>
 <body>    
+<!-- section for timer -->
     <div class="timer">Time: <span id="time">75</span></div>
   
     <br></br>
-    
-    <div class="scores"><a href="">View Highscores</a></div>
-
+    <!-- section for scores -->
+    <div class="scores"><a href="./assets/score.html">View Highscores</a></div>
+<!-- section for main quiz section -->
     <div class="wrapper">
       <div id="home" class="start">
         <h1>Coding Quiz Challenge</h1>
@@ -22,19 +23,26 @@
         </p>
         <button id="start">Start Quiz</button>
       </div>
-
+<!-- section for quiz questions and answer choices -->
       <div id="questions" class="hide">
         <h1 id="question"></h1>
         <div id="choices" class="choice"></div>
       </div>
-
+<!-- section for if choice was correct or incorrect -->
       <div id="answer" class="answer hide"></div>
+    </div>
+<!-- section for end of quiz -->
+    <div id="finish" class="hide">
+      <h1>Quiz Over!</h1>
+      <p>Your final score is <span id="final-score"></span></p>
+      <p>
+        Enter initials: <input type="text" id="initials"/>
+        <button id="submit">Submit</button>
+      </p>
     </div>
 
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/script.js"></script>
 
-
 </body>
 </html>
-
